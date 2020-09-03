@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Train: Data/APIs 1</title>
+  </head>
+  <body>
+    
+    <script>      
+
+       fetch('poem.txt')
+       .then(resp => {
+            const txt = resp.text(); 
+            console.log(txt);
+            return txt; 
+       })
+       .then(txt => {
+            var para = document.createElement("p");
+            var node = document.createTextNode(txt);
+            para.appendChild(node);
+            console.log("yay");
+            return para; 
+        })
+        .then(para => {
+            document.body.append(para);
+        })
+        .catch(err => { 
+            console.log("There was an error");
+            console.error(err);
+        });
+        
+      
+    </script>
+  </body>
+</html>
